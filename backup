@@ -1,0 +1,13 @@
+#!/usr/local/bin/python
+
+import os
+import time
+
+source = ['directory_path', 'another_directory_path']
+target_dir = 'target_dir'
+target = target_dir + os.sep + time.strftime('%Y%m%d%H%M%S') + '.zip'
+zip = "zip -qr {0} {1}".format(target, ' '.join(source))
+if os.system(zip) == 0:
+    print('Backup created successfully in', target)
+else:
+    print('Backup NOT created!!!')
